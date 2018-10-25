@@ -1,1 +1,4 @@
-/pgx/settings.py
+pgx/settings.py
+api/migrations/__pycache__/
+api/__pycache__/
+pgx/__pycache__/

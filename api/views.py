@@ -5,9 +5,9 @@ from .serializers import *
 # Create your views here.
 
 
-class GenesListCreate(generics.ListCreateAPIView):
-    queryset = Genes.objects.all()
-    serializer_class = GenesSerializer
+class GeneListCreate(generics.ListCreateAPIView):
+    queryset = Gene.objects.all()
+    serializer_class = GeneSerializer
 
 
 class ActivityListCreate(generics.ListCreateAPIView):
@@ -15,9 +15,9 @@ class ActivityListCreate(generics.ListCreateAPIView):
     serializer_class = ActivitySerializer
 
 
-class DrugsListCreate(generics.ListCreateAPIView):
-    queryset = Drugs.objects.all()
-    serializer_class = DrugsSerializer
+class DrugListCreate(generics.ListCreateAPIView):
+    queryset = Drug.objects.all()
+    serializer_class = DrugSerializer
 
 
 class RecommendationListCreate(generics.ListCreateAPIView):

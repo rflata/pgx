@@ -1,11 +1,11 @@
-from .models import Activity, Drugs, Genes, Recommendation
+from .models import *
 
 from rest_framework import serializers
 
 
-class GenesSerializer(serializers.ModelSerializer):
+class GeneSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Genes
+        model = Gene
         fields = '__all__'
 
 
@@ -15,15 +15,15 @@ class ActivitySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class DrugsSerializer(serializers.ModelSerializer):
+class DrugSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Drugs
+        model = Drug
         fields = '__all__'
 
 
 class RecommendationSerializer(serializers.ModelSerializer):
-    gene = GenesSerializer()
-    drug = DrugsSerializer()
+    gene = GeneSerializer()
+    drug = DrugSerializer()
     activity = ActivitySerializer()
 
     class Meta:
