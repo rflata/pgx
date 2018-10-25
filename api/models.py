@@ -13,17 +13,17 @@ class Activity(models.Model):
         db_table = 'activity'
 
 
-class Drugs(models.Model):
+class Drug(models.Model):
     # Field renamed to remove unsuitable characters. Field renamed because it started with '_'.
     field_id = models.IntegerField(db_column='\ufeffid', primary_key=True)
     generic_name = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'drugs'
+        db_table = 'drug'
 
 
-class Genes(models.Model):
+class Gene(models.Model):
     # Field renamed to remove unsuitable characters. Field renamed because it started with '_'.
     field_id = models.IntegerField(db_column='\ufeffid', primary_key=True)
     symbol = models.TextField(blank=True, null=True)
@@ -31,17 +31,17 @@ class Genes(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'genes'
+        db_table = 'gene'
 
 
 class Recommendation(models.Model):
     # Field renamed to remove unsuitable characters. Field renamed because it started with '_'.
     field_id = models.AutoField(db_column='\ufeffid', primary_key=True)
-    gene = models.ForeignKey(Genes, models.DO_NOTHING,
+    gene = models.ForeignKey(Gene, models.DO_NOTHING,
                              db_column='gene', blank=True, null=True)
     activity = models.ForeignKey(
         Activity, models.DO_NOTHING, db_column='activity', blank=True, null=True)
-    drug = models.ForeignKey(Drugs, models.DO_NOTHING,
+    drug = models.ForeignKey(Drug, models.DO_NOTHING,
                              db_column='drug', blank=True, null=True)
     recommendation = models.TextField(blank=True, null=True)
 

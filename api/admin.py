@@ -3,6 +3,6 @@ from .models import *
 
 # Register your models here.
 admin.site.register(Activity)
-admin.site.register(Drugs)
-admin.site.register(Genes)
+admin.site.register(Drug)
+admin.site.register(Gene)
 admin.site.register(Recommendation)
