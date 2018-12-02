@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'api.apps.ApiConfig',
+    'django_filters'
 
 ]
 
@@ -79,10 +80,10 @@ WSGI_APPLICATION = 'pgx.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'pgx',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': '127.0.0.1',
+        'NAME': 'cs470project',
+        'USER': 'cs470',
+        'PASSWORD': 'UMKC470db',
+        'HOST': 'cs470project.cdxcrl3x4xp9.ca-central-1.rds.amazonaws.com',
         'PORT': '3306',
     }
 }
@@ -125,3 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+}
