@@ -20,12 +20,46 @@ class DrugSerializer(serializers.ModelSerializer):
         model = Drug
         fields = '__all__'
 
+# Serializer for recommendation model imports foreign key relations
+
 
 class RecommendationSerializer(serializers.ModelSerializer):
-    gene = GeneSerializer()
-    drug = DrugSerializer()
-    activity = ActivitySerializer()
+    geneid = GeneSerializer()
+    drugid = DrugSerializer()
+    activityid = ActivitySerializer()
 
     class Meta:
         model = Recommendation
+        fields = '__all__'
+
+
+class PatientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Patient
+        fields = '__all__'
+
+
+class PatientGeneticsSerializer(serializers.ModelSerializer):
+    patientid = PatientSerializer()
+    geneid = GeneSerializer()
+    activityid = ActivitySerializer()
+
+    class Meta:
+        model = PatientGenetics
+        fields = '__all__'
+
+
+class PrescriberSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Prescriber
+        fields = '__all__'
+
+
+class PrescriptionSerializer(serializers.ModelSerializer):
+    prescriberid = PrescriberSerializer()
+    patientid = PatientSerializer()
+    drugid = DrugSerializer()
+
+    class Meta:
+        model = Prescription
         fields = '__all__'
